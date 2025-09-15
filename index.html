@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interactive Buttons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .container > div {
+            text-align: center;
+        }
+        
+        .container p {
+            margin: 8px 0 0 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .btn1 { background: #ff4444; color: white; }
+        .btn2 { background: #44ff44; color: black; }
+        .btn3 { background: #4444ff; color: white; }
+        .btn4 { background: #ffff44; color: black; }
+        .btn5 { background: #ff44ff; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <button class="btn1" id="btn1">Button 1</button>
+            <p>Shows alert message</p>
+        </div>
+        <div>
+            <button class="btn2" id="btn2">Button 2</button>
+            <p>Changes button text</p>
+        </div>
+        <div>
+            <button class="btn3" id="btn3">Button 3</button>
+            <p>Changes page background</p>
+        </div>
+        <div>
+            <button class="btn4" id="btn4">Button 4</button>
+            <p>Changes button color</p>
+        </div>
+        <div>
+            <button class="btn5" id="btn5">Button 5</button>
+            <p>Enables/disables all buttons</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('btn1').onclick = function() {
+            alert('Button 1 clicked!');
+        };
+
+        document.getElementById('btn2').onclick = function() {
+            this.textContent = this.textContent === 'Button 2' ? 'Clicked!' : 'Button 2';
+        };
+
+        document.getElementById('btn3').onclick = function() {
+            document.body.style.backgroundColor = document.body.style.backgroundColor === 'lightblue' ? '#f0f0f0' : 'lightblue';
+        };
+
+        document.getElementById('btn4').onclick = function() {
+            this.style.backgroundColor = this.style.backgroundColor === 'orange' ? '#ffff44' : 'orange';
+        };
+
+        document.getElementById('btn5').onclick = function() {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => btn.disabled = !btn.disabled);
+        };
+    </script>
+</body>
+</html>
